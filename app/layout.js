@@ -6,6 +6,7 @@ import { getServerSession } from "next-auth";
 import SessionProvider from "@/utils/SessionProvider";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import { CartProvider } from "./CartContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,13 +21,16 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className="font-serif ">
         <SessionProvider session={session}>
+          <CartProvider>
           <div className="wrapper">
             <Navbar />
             {children}
             <Footer/>
           </div>
+          </CartProvider>
+         
         </SessionProvider>
       </body>
     </html>

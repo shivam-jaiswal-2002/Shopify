@@ -1,39 +1,37 @@
-"use client"
-;import React, { useEffect, useState } from 'react';
-import { FaShoppingCart, FaMinus, FaPlus } from "react-icons/fa";
+// rootofproject/app/page.js
+"use client";
+
+import React, { useEffect, useState } from 'react';
+import { FaShoppingCart } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
-import { CartProvider, useCart } from './CartContext'; // Import removeFromCart
+import { CartProvider, useCart } from '../../CartContext';
+import { FaMinus } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
-  const { addToCart, incrementQuantity, decrementQuantity,removeFromCart, state } = useCart();
+  const { addToCart, incrementQuantity, decrementQuantity, state } = useCart(); // Add state and actions from context
   const router = useRouter();
 
   useEffect(() => {
     // Fetch products from API
-    fetch('https://fakestoreapi.com/products')
+    fetch("https://fakestoreapi.com/products/category/women's%20clothing")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error));
   }, []);
 
   const handleAddToCart = (product) => {
-    const isProductInCart = state.cart.some(item => item.id === product.id);
-
-    if (isProductInCart) {
-      removeFromCart(product.id); // Use removeFromCart function
-    } else {
-      addToCart(product);
-    }
+    addToCart(product);
   };
 
   const getProductCount = (productId) => {
-    const product = state.cart.find(item => item.id === productId);
-    return product ? product.quantity : 0;
-  };
-
-  const isProductInCart = (productId) => {
-    return state.cart.some(item => item.id === productId);
+    return state.cart.reduce((count, item) => {
+      if (item.id === productId) {
+        return count + item.quantity;
+      }
+      return count;
+    }, 0);
   };
 
   return (
@@ -47,7 +45,7 @@ const HomePage = () => {
             <p className="text-gray-600">${product.price}</p>
             <div className='flex mx-2 items-center'>
               <button onClick={() => handleAddToCart(product)}>
-                <FaShoppingCart size={25} color={isProductInCart(product.id) ? 'green' : 'black'} />
+                <FaShoppingCart size={25} color={state.cart.some(item => item.id === product.id) ? 'green' : 'black'} />
               </button>
               <div className="flex mx-2">
                 <button className='mr-1' onClick={() => incrementQuantity(product.id)}><FaPlus/></button>

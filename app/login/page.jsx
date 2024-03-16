@@ -12,7 +12,7 @@ const Login = () => {
 
   useEffect(() => {
     if (sessionStatus === "authenticated") {
-      router.replace("/dashboard");
+      router.replace("/");
       console.log(session);
     }
   }, [sessionStatus, router]);
@@ -45,9 +45,10 @@ const Login = () => {
 
     if (res?.error) {
       setError("Invalid email or password");
-      if (res?.url) router.replace("/dashboard");
+      if (res?.url) router.replace("/");
     } else {
       setError("");
+      location.reload();
     }
   };
 
