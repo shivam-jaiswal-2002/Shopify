@@ -7,6 +7,7 @@ import SessionProvider from "@/utils/SessionProvider";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { CartProvider } from "./CartContext";
+import { PaymentProvider } from "./PaymentContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,11 +25,14 @@ export default async function RootLayout({
       <body className="font-serif ">
         <SessionProvider session={session}>
           <CartProvider>
-          <div className="wrapper">
+            <PaymentProvider>
+            <div className="wrapper">
             <Navbar />
             {children}
             <Footer/>
           </div>
+            </PaymentProvider>
+         
           </CartProvider>
          
         </SessionProvider>

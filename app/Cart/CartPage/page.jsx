@@ -1,19 +1,25 @@
-// rootofproject/app/cart/page.jsx
 "use client";
-import React from 'react';
+import React, { useState } from 'react';
 import { useCart } from '../../CartContext';
+import { useRouter } from 'next/navigation';
+import { usePayment } from '@/app/PaymentContext';
 
 export const CartPage = () => {
   const { state, incrementQuantity, decrementQuantity, removeFromCart } = useCart();
-
-  // Calculate total price of each type of item
+  const router = useRouter();
+  const { addToPayment } = usePayment(); 
+  const handleCheckout = () => {
+    state.cart.forEach(product => {
+      addToPayment(product);
+    });
+    router.push('/payment');
+  };
   const calculateTotalPrice = (item) => {
-    return (item.price * item.quantity).toFixed(2); // Format to two decimal places
+    return (item.price * item.quantity).toFixed(2); 
   };
 
-  // Calculate combined total price of all items
   const calculateCombinedTotalPrice = () => {
-    return state.cart.reduce((total, item) => total + parseFloat(calculateTotalPrice(item)), 0).toFixed(2); // Format to two decimal places
+    return state.cart.reduce((total, item) => total + parseFloat(calculateTotalPrice(item)), 0).toFixed(2); 
   };
 
   return (
@@ -34,7 +40,7 @@ export const CartPage = () => {
                     <button
                       onClick={() => decrementQuantity(item.id)}
                       className="bg-gray-200 text-gray-700 px-3 py-1 rounded-md mr-2"
-                      disabled={item.quantity <= 0} // Disable button when quantity is 0
+                      disabled={item.quantity <= 0} 
                     >
                       -
                     </button>
@@ -46,17 +52,24 @@ export const CartPage = () => {
                       +
                     </button>
                   </div>
-                  <p className="text-gray-600">Total Price: ${calculateTotalPrice(item)}</p> {/* Display total price */}
+                  <p className="text-gray-600">Total Price: ${calculateTotalPrice(item)}</p>
                 </div>
-                <button className="text-red-600 ml-4" onClick={() => removeFromCart(item)}>Remove</button> {/* Remove button */}
+                <button className="text-red-600 ml-4" onClick={() => removeFromCart(item)}>Remove</button> 
               </li>
             ))}
           </ul>
           <div className="mt-8 flex justify-end">
             <p className="text-xl font-semibold">Total: ${calculateCombinedTotalPrice()}</p>
           </div>
+          <div className="mt-8">
+            <button onClick={handleCheckout} className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+              Checkout
+            </button>
+          </div>
         </div>
       )}
     </div>
   );
 };
+
+export default CartPage;
