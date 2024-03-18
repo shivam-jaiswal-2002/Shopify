@@ -36,7 +36,7 @@ const HomePage = () => {
 
   return (
     <div className=''>
-      <h1 className='item-center text-center text-2xl p-2 m-2 font-serif'>Choose from the best!</h1>
+      <h1 className='item-center text-center text-2xl p-2 m-2 font-serif'>Shop From The Best of Best!</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 m-2">
         {products.map(product => (
           <div key={product.id} className="bg-white p-4 rounded-md hover:shadow-2xl transition duration-300">
