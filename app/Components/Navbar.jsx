@@ -6,7 +6,7 @@ import { signOut, useSession } from "next-auth/react";
 function Navbar() {
   const { data: session } = useSession();
   return (
-    <nav className="bg-black font-serif text-white flex justify-between items-center px-4 py-2">
+    <nav className="fixed w-full bg-black font-serif text-white flex justify-between items-center px-4 py-2">
       <Link href="/" className='text-2xl'>
         Shoppers Stop
       </Link>

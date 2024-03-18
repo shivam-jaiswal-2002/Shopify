@@ -6,11 +6,12 @@ import { usePayment } from '@/app/PaymentContext';
 
 export const CartPage = () => {
   const { state, incrementQuantity, decrementQuantity, removeFromCart } = useCart();
-  const router = useRouter();
   const { addToPayment } = usePayment(); 
+  const router = useRouter();
+
   const handleCheckout = () => {
-    state.cart.forEach(product => {
-      addToPayment(product);
+    state.cart.forEach((product) => {
+      addToPayment({ ...product, quantity: product.quantity, price: product.price }); // Add product to payment context with updated quantity
     });
     router.push('/payment');
   };
@@ -40,7 +41,7 @@ export const CartPage = () => {
                     <button
                       onClick={() => decrementQuantity(item.id)}
                       className="bg-gray-200 text-gray-700 px-3 py-1 rounded-md mr-2"
-                      disabled={item.quantity <= 0} 
+                      disabled={item.quantity <= 1} 
                     >
                       -
                     </button>

@@ -18,7 +18,7 @@ export default async function Cart() {
     {session ? (
       <CartPage />
     ) : (
-      <p className="text-red-500 font-bold items-center text-center text-4xl">Please login to view cart <a className='text-green-400' href="/login">Login here</a></p>
+      <p className="text-red-500 font-bold items-center text-center text-4xl mt-40 pt-20">Please login to view cart <a className='text-green-400' href="/login">Login here</a></p>
     )}
   </div>
   )

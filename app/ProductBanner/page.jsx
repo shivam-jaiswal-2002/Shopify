@@ -27,13 +27,13 @@ const ProductBanner = () => {
 
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-    }, 3000);
+    }, 1000);
 
     return () => clearInterval(intervalId);
   }, [products.length]);
 
   return (
-    <div className={`${styles.productBanner}`}> {/* Apply CSS module */}
+    <div className={`px-12 ${styles.productBanner}`}> {/* Apply CSS module */}
       {products.length > 0 && (
         <img
           src={products[currentIndex].image}

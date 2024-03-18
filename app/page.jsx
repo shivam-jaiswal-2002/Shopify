@@ -43,7 +43,7 @@ const HomePage = () => {
         <div className='w-1/2'>
         <ProductBanner/>
         </div>
-        <div className='w-1/2 m-auto'>
+        <div className='w-1/2 m-auto text-4xl'>
           Shop From The Best of Best!
         </div>
       </h1>

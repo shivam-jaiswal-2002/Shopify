@@ -28,7 +28,10 @@ export default async function RootLayout({
             <PaymentProvider>
             <div className="wrapper">
             <Navbar />
+            <div className="mt-10 pt-7">
             {children}
+
+            </div>
             <Footer/>
           </div>
             </PaymentProvider>
