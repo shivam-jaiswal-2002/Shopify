@@ -1,0 +1,12 @@
+/* components/ProductBanner.module.css */
+
+.productBanner {
+    height: 450px; /* Set the height to 50% of the viewport height */
+  }
+  
+  .bannerImage {
+/* Ensure the image fills the entire height of the container */
+    width: 450px;
+    height: 450px;
+  }
+  

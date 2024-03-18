@@ -3,6 +3,7 @@
 import { FaShoppingCart, FaMinus, FaPlus } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
 import { CartProvider, useCart } from './CartContext'; // Import removeFromCart
+import ProductBanner from './ProductBanner/page';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -38,7 +39,14 @@ const HomePage = () => {
 
   return (
     <div className=''>
-      <h1 className='item-center text-center text-2xl p-2 m-2 font-serif'>Choose from the best!</h1>
+      <h1 className=' item-center flex text-center text-2xl p-2 m-2 font-serif mb-10 border border-solid border-black'>
+        <div className='w-1/2'>
+        <ProductBanner/>
+        </div>
+        <div className='w-1/2 m-auto'>
+          Shop From The Best of Best!
+        </div>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 m-2">
         {products.map(product => (
           <div key={product.id} className="bg-white p-4 rounded-md hover:shadow-2xl transition duration-300">
