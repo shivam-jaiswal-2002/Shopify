@@ -113,7 +113,7 @@ export const PaymentPage = () => {
               <option value="">Select Payment Method</option>
               <option value="creditCard">Credit Card</option>
               <option value="paypal">PayPal</option>
-              <option value="paypal">Cash on Delivery</option>
+              <option value="Cash on Delivery">Cash on Delivery</option>
             </select>
             {/* Complete payment button */}
             <button

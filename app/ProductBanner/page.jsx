@@ -4,6 +4,7 @@
 
 import React, { useEffect, useState } from 'react';
 import styles from './ProductBanner.module.css'; // Import CSS module
+import Image from 'next/image';
 
 const ProductBanner = () => {
   const [products, setProducts] = useState([]);

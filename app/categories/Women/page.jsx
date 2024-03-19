@@ -7,9 +7,11 @@ import { useRouter } from 'next/navigation';
 import { CartProvider, useCart } from '../../CartContext';
 import { FaMinus } from "react-icons/fa6";
 import { FaPlus } from "react-icons/fa6";
+import ProductDetailsPopup from '@/app/ProductDetailsPopup/page';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);
+  const [selectedProduct, setSelectedProduct] = useState(null);
   const { addToCart, incrementQuantity, decrementQuantity, state } = useCart(); // Add state and actions from context
   const router = useRouter();
 
@@ -33,14 +35,20 @@ const HomePage = () => {
       return count;
     }, 0);
   };
+  const openProductDetails = (product) => {
+    setSelectedProduct(product);
+  };
 
+  const closeProductDetails = () => {
+    setSelectedProduct(null);
+  };
   return (
     <div className=''>
       <h1 className='item-center text-center text-2xl p-2 m-2 font-serif'>Shop From The Best of Best!</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 m-2">
         {products.map(product => (
           <div key={product.id} className="bg-white p-4 rounded-md hover:shadow-2xl transition duration-300">
-            <img src={product.image} alt={product.title} className="w-full h-48 object-cover mb-4" />
+            <img src={product.image} alt={product.title} className="w-full h-48 object-cover mb-4 hover:cursor-pointer" onClick={() => openProductDetails(product)} />
             <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
             <p className="text-gray-600">${product.price}</p>
             <div className='flex mx-2 items-center'>
@@ -56,6 +64,10 @@ const HomePage = () => {
           </div>
         ))}
       </div>
+            {/* Product Details Popup */}
+            {selectedProduct && (
+        <ProductDetailsPopup product={selectedProduct} onClose={closeProductDetails} />
+      )}
     </div>
   );
 };
