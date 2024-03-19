@@ -28,7 +28,7 @@ const ProductBanner = () => {
 
     const intervalId = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-    }, 1000);
+    }, 2000);
 
     return () => clearInterval(intervalId);
   }, [products.length]);
