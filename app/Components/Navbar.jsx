@@ -19,12 +19,12 @@ function Navbar() {
         </li>
         <li>
           <Link href="/categories/Men">
-            Men Clothing
+            Men&apos;s Clothing
           </Link>
         </li>
         <li>
           <Link href="/categories/Women">
-            Women Clothing
+            Women&apos;s Clothing
           </Link>
         </li>
         <li>

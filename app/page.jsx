@@ -7,6 +7,7 @@ import { CartProvider, useCart } from './CartContext'; // Import removeFromCart
 import ProductBanner from './ProductBanner/page';
 import ProductDetailsPopup from './ProductDetailsPopup/page'; // Import the ProductDetailsPopup component
 import { FaMinus, FaPlus } from 'react-icons/fa6';
+import Image from 'next/image';
 
 const HomePage = () => {
   const [products, setProducts] = useState([]);

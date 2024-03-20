@@ -100,7 +100,7 @@ export const PaymentPage = () => {
           {/* Error message for zero total price */}
           {calculateTotalPrice() === "0.00" && (
             <p className="text-red-500 mb-4 text-center">
-              You don't have anything in your cart.
+              You don&apos;t have anything in your cart.
             </p>
           )}
           {/* Collect shipping details */}
