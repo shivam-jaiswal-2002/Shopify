@@ -48,7 +48,7 @@ const HomePage = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-4 m-2">
         {products.map(product => (
           <div key={product.id} className="bg-white p-4 rounded-md hover:shadow-2xl transition duration-300">
-            <img src={product.image} alt={product.title} className="w-full h-48 object-cover mb-4 hover:cursor-pointer" onClick={() => openProductDetails(product)} />
+            <img src={product.image} alt={product.title} className="w-full h-48 object-contain mb-4 hover:cursor-pointer" onClick={() => openProductDetails(product)} />
             <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
             <p className="text-gray-600">${product.price}</p>
             <div className='flex mx-2 items-center'>

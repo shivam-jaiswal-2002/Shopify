@@ -26,6 +26,13 @@ export const PaymentPage = () => {
   }, []);
 
   const handlePaymentDone = async () => {
+    const totalPrice = calculateTotalPrice();
+
+    if (totalPrice === "0.00") {
+      alert("You don't have anything in your cart.");
+      return;
+    }
+
     try {
       // Send payment data to the server
       const res = await fetch("/api/payment", {
@@ -78,7 +85,7 @@ export const PaymentPage = () => {
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-24 h-24 object-cover"
+                    className="w-24 h-24 object-contain"
                   />
                 </div>
               </li>
@@ -90,6 +97,12 @@ export const PaymentPage = () => {
               Total Price: ${calculateTotalPrice()}
             </p>
           </div>
+          {/* Error message for zero total price */}
+          {calculateTotalPrice() === "0.00" && (
+            <p className="text-red-500 mb-4 text-center">
+              You don't have anything in your cart.
+            </p>
+          )}
           {/* Collect shipping details */}
           <div>
             <input

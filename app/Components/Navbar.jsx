@@ -56,7 +56,7 @@ function Navbar() {
        
       ):(
         <div className="justify-end flex items-center">
-          Welcome {session.user.email}
+          Welcome {session.user.email.split('@')[0]}
           <ul className="ml-4">
           <li>
             <button onClick={() => {
