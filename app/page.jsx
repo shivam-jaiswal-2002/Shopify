@@ -16,12 +16,18 @@ const HomePage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    // Fetch products from API
-    fetch('https://fakestoreapi.com/products')
-      .then((response) => response.json())
-      .then((data) => setProducts(data))
-      .catch((error) => console.error('Error fetching products:', error));
+    fetchProducts();
   }, []);
+
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch('/api/product');
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error('Error fetching products:', error);
+    }
+  };
 
   const handleAddToCart = (product) => {
     const isProductInCart = state.cart.some(item => item.id === product.id);
@@ -52,7 +58,7 @@ const HomePage = () => {
 
   return (
     <div className="">
-      <h1 className=" item-center flex text-center text-2xl p-2 m-2 font-serif mb-10 border border-solid border-black">
+      <h1 className="item-center flex text-center text-2xl p-2 m-2 font-serif mb-10 border border-solid border-black">
         <div className="w-1/2">
           <ProductBanner />
         </div>
