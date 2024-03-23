@@ -24,7 +24,7 @@ const paymentSchema = new Schema(
       required: true,
     },
     products: {
-      type: [productSchema], // Define an array of products using the product schema
+      type: [productSchema], 
       required: true,
     },
     shippingDetails: {

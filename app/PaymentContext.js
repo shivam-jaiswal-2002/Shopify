@@ -1,3 +1,6 @@
+// PaymentContext.jsx
+"use client";
+// PaymentContext.jsx
 "use client";
 import React, { createContext, useContext, useReducer } from 'react';
 

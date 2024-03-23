@@ -12,20 +12,19 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case 'ADD_TO_CART':
       const existingProductIndex = state.cart.findIndex((item) => item.id === action.payload.id);
-
-      if (existingProductIndex !== -1) {
+      if (existingProductIndex!==-1) {
         const updatedCart = [...state.cart];
-        updatedCart[existingProductIndex].quantity = 1;
+        updatedCart[existingProductIndex].quantity = 1; // Increment the quantity
 
         return {
           ...state,
           cart: updatedCart,
         };
       } else {
-        return {
-          ...state,
-          cart: [...state.cart, { ...action.payload, quantity: 1 }],
-        };
+            return {
+              ...state,
+              cart: [...state.cart, { ...action.payload, quantity: 1 }],
+            }     
       }
 
     case 'REMOVE_FROM_CART':
@@ -37,9 +36,18 @@ const cartReducer = (state, action) => {
       };
 
     case 'INCREMENT_QUANTITY':
-      const incrementedCart = state.cart.map((item) =>
-        item.id === action.payload.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
+      const incrementedCart = state.cart.map((item) => {
+        if (item.id === action.payload.id) {
+          if (item.quantity + 1 > item.itemsInStock) {
+            alert('Selected number of items not available right now');
+            return item;
+          } else {
+            return { ...item, quantity: item.quantity + 1 };
+          }
+        } else {
+          return item;
+        }
+      });
 
       return {
         ...state,
@@ -47,9 +55,18 @@ const cartReducer = (state, action) => {
       };
 
     case 'DECREMENT_QUANTITY':
-      const decrementedCart = state.cart.map((item) =>
-        item.id === action.payload.id ? { ...item, quantity: Math.max(item.quantity - 1, 0) } : item
-      );
+      const decrementedCart = state.cart.map((item) => {
+        if (item.id === action.payload.id) {
+          if (item.quantity - 1 < 0) {
+            alert('Item quantity cannot be less than zero');
+            return item;
+          } else {
+            return { ...item, quantity: Math.max(item.quantity - 1, 0) };
+          }
+        } else {
+          return item;
+        }
+      });
 
       return {
         ...state,

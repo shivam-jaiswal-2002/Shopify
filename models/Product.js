@@ -1,17 +1,17 @@
-// models/Product.js
 
 import mongoose from 'mongoose';
 
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
+  id: Number,
   title: String,
   price: Number,
   description: String,
   category: String,
   image: String,
-  // Add any other fields present in your MongoDB collection
-}, { collection: 'products' }); // Specify the collection name explicitly
+  itemsInStock: Number,
+}, { collection: 'products' });
 
 const Product = mongoose.models.Product || mongoose.model('Product', productSchema);
 

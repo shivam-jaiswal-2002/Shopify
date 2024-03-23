@@ -1,4 +1,6 @@
 "use client";
+// PaymentPage.jsx
+"use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePayment } from "../../PaymentContext"; // Import usePayment hook
@@ -42,7 +44,7 @@ export const PaymentPage = () => {
         },
         body: JSON.stringify({
           user: session.user.email,
-          product: uniqueProducts, // Use uniqueProducts instead of state.products
+          products: uniqueProducts, // Use uniqueProducts instead of state.products
           shippingDetails,
           paymentMethod,
         }),

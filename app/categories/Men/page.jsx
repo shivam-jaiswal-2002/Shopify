@@ -17,7 +17,7 @@ const HomePage = () => {
 
   useEffect(() => {
     // Fetch products from API
-    fetch("https://fakestoreapi.com/products/category/men's%20clothing")
+    fetch("/api/product")
       .then((response) => response.json())
       .then((data) => setProducts(data))
       .catch((error) => console.error('Error fetching products:', error));

@@ -31,7 +31,10 @@ const HomePage = () => {
 
   const handleAddToCart = (product) => {
     const isProductInCart = state.cart.some(item => item.id === product.id);
-
+    if(product.itemsInStock===0){
+      alert("item out of stock");
+      return;
+    }
     if (isProductInCart) {
       removeFromCart(product.id); // Use removeFromCart function
     } else {

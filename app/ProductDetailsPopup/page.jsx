@@ -7,6 +7,10 @@ const ProductDetailsPopup = ({ product, onClose }) => {
   const { addToCart, incrementQuantity, decrementQuantity, state } = useCart();
 
   const handleAddToCart = () => {
+    if(product.itemsInStock===0){
+      alert("item out of stock");
+      return;
+    }
     addToCart(product);
   };
 
