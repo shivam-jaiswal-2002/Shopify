@@ -1,7 +1,7 @@
 import connectDB from "../../../utils/db";
 import {Product} from '../../../models/Product';
 import { NextResponse, NextRequest } from "next/server";
-
+export const revalidate = 0;
 export const PUT = async (req, res) => {
     await connectDB();
     const {id, quantity} = await req.json();

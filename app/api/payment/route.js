@@ -3,7 +3,7 @@ import Payment from "@/models/Payment";
 import { Product } from "@/models/Product"; // Import the Product model
 import connect from "@/utils/db";
 import { NextResponse } from "next/server";
-
+export const revalidate = 0;
 export const POST = async (request) => {
   const { user, products, shippingDetails, paymentMethod } = await request.json();
 

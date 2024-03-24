@@ -2,11 +2,11 @@ import User from "@/models/User";
 import connect from "@/utils/db";
 import bcrypt from "bcryptjs";
 import { NextResponse } from "next/server";
-
+export const revalidate = 0;
 export const POST = async (request) => {
   const { email, password } = await request.json();
-
   await connect();
+  
 
   const existingUser = await User.findOne({ email });
 
