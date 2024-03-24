@@ -6,7 +6,7 @@ import bcrypt from "bcryptjs";
 import User from "@/models/User";
 import connect from "@/utils/db";
 import { Jwt } from "jsonwebtoken";
-
+export const revalidate = 0;
 export const authOptions = {
   session: {
     strategy: "jwt",
