@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { usePayment } from "../../PaymentContext"; // Import usePayment hook
 import { useSession } from "next-auth/react";
+import PaymentPopup from "../../PaymentPopup/page"
+
 
 export const PaymentPage = () => {
   const { data: session } = useSession();
@@ -12,7 +14,7 @@ export const PaymentPage = () => {
   const { state } = usePayment(); // Retrieve cart information from PaymentContext
   const [shippingDetails, setShippingDetails] = useState({});
   const [paymentMethod, setPaymentMethod] = useState("");
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
   // Function to calculate the total price
   const calculateTotalPrice = () => {
     return uniqueProducts
@@ -51,7 +53,7 @@ export const PaymentPage = () => {
       });
       if (res.ok) {
         // Redirect to confirmation page
-        router.push("/", undefined, { shallow: false });
+        setIsModalOpen(true);
       } else {
         console.error("Error processing payment:", res.statusText);
         // Handle error
@@ -61,7 +63,14 @@ export const PaymentPage = () => {
       // Handle error
     }
   };
-
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    window.location.reload();
+    window.onload = () => {
+      router.push("/Cart");
+    };
+  };
+  
   return (
     <>
       <div className="container mx-auto p-4 flex justify-center items-center">
@@ -139,6 +148,8 @@ export const PaymentPage = () => {
             </button>
           </div>
         </div>
+        {/* Modal for showing order confirmation */}
+      <PaymentPopup isOpen={isModalOpen} onClose={handleCloseModal} />
       </div>
     </>
   );
