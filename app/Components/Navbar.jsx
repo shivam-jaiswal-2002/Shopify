@@ -8,7 +8,7 @@ function Navbar() {
   return (
     <nav className="fixed w-full bg-black font-serif text-white flex justify-between items-center px-4 py-2">
       <Link href="/" className='text-2xl'>
-        Shoppers Stop
+        TrendHorizon
       </Link>
       <ul className="flex space-x-9">
 
