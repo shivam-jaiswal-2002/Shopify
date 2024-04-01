@@ -3,12 +3,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getSession } from 'next-auth/react';
-
+import {useRouter} from "next/navigation";
 const MyOrderPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  const router = useRouter();
   useEffect(() => {
     fetchOrders();
   }, []);
@@ -17,6 +17,7 @@ const MyOrderPage = () => {
     try {
       const session = await getSession();
       if (!session) {
+        router.push("/");
         throw new Error('User not authenticated');
       }
 
