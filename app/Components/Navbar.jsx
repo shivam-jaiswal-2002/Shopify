@@ -58,6 +58,9 @@ function Navbar() {
         <div className="justify-end flex items-center">
           Welcome {session.user.email.split('@')[0]}
           <ul className="ml-4">
+            <Link href="/MyOrder">
+              <button>My Order</button>
+            </Link>
           <li>
             <button onClick={() => {
               signOut();

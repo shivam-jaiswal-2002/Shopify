@@ -85,9 +85,9 @@ const HomePage = () => {
                 <FaShoppingCart size={25} color={isProductInCart(product.id) ? 'green' : 'black'} />
               </button>
               <div className="flex mx-2">
-                <button className="mr-1" onClick={() => incrementQuantity(product.id)}><FaPlus /></button>
+              <button onClick={() => decrementQuantity(product.id)}><FaMinus /></button>
                 <span className="text-xl mr-1">{getProductCount(product.id)}</span>
-                <button onClick={() => decrementQuantity(product.id)}><FaMinus /></button>
+                <button className="mr-1" onClick={() => incrementQuantity(product.id)}><FaPlus /></button>
               </div>
             </div>
           </div>
