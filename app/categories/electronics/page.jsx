@@ -54,7 +54,7 @@ const HomePage = () => {
         {products.map(product => {
           if (product.category === 'electronics') {
             return (
-              <div key={product.id} className="bg-white p-4 rounded-md hover:shadow-2xl transition duration-300">
+              <div key={product.id} className="bg-white p-4 rounded-md hover:shadow-2xl hover:shadow-blue-600 transition duration-300">
                 <img src={product.image} alt={product.title} className="w-full h-48 object-contain mb-4 hover:cursor-pointer" onClick={() => openProductDetails(product)} />
                 <h2 className="text-lg font-semibold mb-2">{product.title}</h2>
                 <p className="text-gray-600">${product.price}</p>
