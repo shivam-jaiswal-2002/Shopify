@@ -39,6 +39,22 @@ const MyOrderPage = () => {
     }
   };
 
+  const cancelOrder = async (orderId) => {
+    try {
+      await axios.delete("/api/deleteOrder", {
+        data: {
+          orderId: orderId
+        }
+      });
+      // Remove the canceled order from the list
+      setOrders(orders.filter(order => order._id !== orderId));
+    } catch (error) {
+      console.error('Error canceling order:', error);
+      setError('Error canceling order. Please try again later.');
+    }
+  };
+  
+
   return (
     <div className="container mx-auto p-8">
       <h1 className="text-3xl font-semibold mb-4">My Orders</h1>
@@ -56,6 +72,7 @@ const MyOrderPage = () => {
               <p className="mb-2">User: {order.user}</p>
               <p className="mb-2">Created At: {new Date(order.createdAt).toLocaleString()}</p>
               {/* Render product details if needed */}
+              <button onClick={() => cancelOrder(order._id)} className="bg-red-500 text-white px-3 py-1 rounded">Cancel Order</button>
             </div>
           ))}
         </div>

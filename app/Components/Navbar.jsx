@@ -55,20 +55,15 @@ function Navbar() {
         </>
        
       ):(
-        <div className="justify-end flex items-center">
-          Welcome {session.user.email.split('@')[0]}
-          <ul className="ml-4">
-            <Link href="/MyOrder">
-              <button>My Order</button>
-            </Link>
-          <li>
-            <button onClick={() => {
-              signOut();
-            }} className="px-3 py-2 rounded bg-blue-950 text-white hover:bg-transparent">Signout</button>
-          </li>
-          </ul>
-    
+        <div className="flex justify-between items-center">
+        <div className="flex-col">
+          <Link href="/MyOrder">
+            <button className="px-3 py-2 mr-2 rounded bg-blue-950 text-white hover:bg-transparent">My Order</button>
+          </Link>
+          <button onClick={() => signOut()} className="px-3 py-2 rounded bg-blue-950 text-white hover:bg-transparent">Sign out</button>
         </div>
+        <span className="ml-4">Welcome {session.user.email.split('@')[0]}</span>
+      </div>
       )}
       
     </nav>

@@ -35,7 +35,7 @@ export const PaymentPage = () => {
     if (totalPrice === "0.00") {
       alert("You don't have anything in your cart.");
       return;
-    }
+  }
 
     try {
       // Send payment data to the server

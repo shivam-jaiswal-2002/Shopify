@@ -1,9 +1,9 @@
 // pages/api/products.js
-
 import connectDB from '../../../utils/db';
 import {Product} from '../../../models/Product';
 import { NextResponse } from 'next/server';
 export const revalidate = 0;
+
 export const GET = async (req, res) => {
   await connectDB();
 

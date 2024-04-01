@@ -13,8 +13,6 @@ export async function POST(req) {
     // // Fetch payments based on the user's email
     const payments = await Payment.find({ user: user });
 
-
-
     // Return the fetched orders as a JSON response
     return NextResponse.json(payments, { status: 200 });
   } catch (error) {
