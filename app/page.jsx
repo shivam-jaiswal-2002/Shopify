@@ -61,11 +61,11 @@ const HomePage = () => {
 
   return (
     <div className="">
-      <h1 className="item-center flex text-center text-2xl p-2 m-2 font-serif mb-10 border border-solid border-black">
-        <div className="w-1/2">
+      <h1 className="item-center lg:flex text-center text-2xl p-2 m-2 font-serif mb-10 border border-solid border-black">
+        <div className="lg:w-1/2">
           <ProductBanner />
         </div>
-        <div className="w-1/2 m-auto text-4xl">
+        <div className="lg:w-1/2 m-auto text-4xl">
           Shop From The Best of Best!
         </div>
       </h1>

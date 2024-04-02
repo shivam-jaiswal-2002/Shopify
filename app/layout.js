@@ -32,7 +32,7 @@ export default async function RootLayout({ children }) {
                 <div className="hidden lg:block"> {/* Show Navbar on large screens */}
                   <Navbar/>
                 </div>              
-                <div className="mt-10 pt-7">{children}</div>
+                <div className="mt-10 pt-7 pb-20">{children}</div>
                 <div className="">
                 <Footer />
 

@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { signOut, useSession } from 'next-auth/react';
 import styles from './SliderNavbar.module.css'; // For CSS Modules
-
+import { IoIosMenu } from "react-icons/io";
 const SliderNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -19,7 +19,7 @@ const SliderNavbar = () => {
         TrendHorizon
       </Link>
       <button className={styles.sliderButton} onClick={toggleSlider}>
-        <span className={styles.sliderIcon}>Menu</span>
+        <span className={styles.sliderIcon}><IoIosMenu/></span>
       </button>
       <ul className={`${styles.sliderContent} bg-white text-black items-center ${isOpen ? styles.show : ''}`}>
         <li className="px-4 py-2 hover:bg-gray-200">
