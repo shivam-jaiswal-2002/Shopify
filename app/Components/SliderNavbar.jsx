@@ -26,10 +26,10 @@ const SliderNavbar = () => {
           <Link href="/Cart">Cart</Link>
         </li>
         <li className="px-4 py-2 hover:bg-gray-200">
-          <Link href="/categories/Men">Men's Clothing</Link>
+          <Link href="/categories/Men">Men&apos;s Clothing</Link>
         </li>
         <li className="px-4 py-2 hover:bg-gray-200">
-          <Link href="/categories/Women">Women's Clothing</Link>
+          <Link href="/categories/Women">Women&apos;s Clothing</Link>
         </li>
         <li className="px-4 py-2 hover:bg-gray-200">
           <Link href="/categories/electronics">Electronics</Link>
