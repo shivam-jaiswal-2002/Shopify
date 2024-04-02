@@ -13,7 +13,7 @@ const cartReducer = (state, action) => {
     case 'ADD_TO_CART':
       const existingProductIndex = state.cart.findIndex((item) => item.id === action.payload.id);
       console.log(existingProductIndex);  
-      if (existingProductIndex===0) {
+      if (existingProductIndex!==-1) {
         const updatedCart = [...state.cart];
         updatedCart[existingProductIndex].quantity = 1; // Increment the quantity
 
@@ -22,20 +22,12 @@ const cartReducer = (state, action) => {
           cart: updatedCart,
         };
       } else {
-        if(existingProductIndex!==-1){
-          const updatedCart = [...state.cart];
-          updatedCart[existingProductIndex].quantity = 0; // Increment the quantity
-  
-          return {
-            ...state,
-            cart: updatedCart,
-          };
-        } 
-        else{
+        
+      
           return {
             ...state,
             cart: [...state.cart, { ...action.payload, quantity: 1 }],
-          }     
+             
         }
             
       }

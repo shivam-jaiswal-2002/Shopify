@@ -1,5 +1,4 @@
 "use client";
-// HomePage.js
 import React, { useEffect, useState } from 'react';
 import { FaShoppingCart } from "react-icons/fa";
 import { useRouter } from 'next/navigation';
@@ -14,9 +13,17 @@ const HomePage = () => {
   const [selectedProduct, setSelectedProduct] = useState(null); // State to manage the selected product for the popup
   const { addToCart, incrementQuantity, decrementQuantity, removeFromCart, state } = useCart();
   const router = useRouter();
+  const [isLargeScreen, setIsLargeScreen] = useState(true);
 
   useEffect(() => {
     fetchProducts();
+    // Check if screen size is large
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 768); // Adjust the breakpoint as needed
+    };
+    handleResize(); // Call initially to set the initial state
+    window.addEventListener('resize', handleResize); // Add event listener for window resize
+    return () => window.removeEventListener('resize', handleResize); // Remove event listener on component unmount
   }, []);
 
   const fetchProducts = async () => {
@@ -94,7 +101,7 @@ const HomePage = () => {
         ))}
       </div>
       {/* Product Details Popup */}
-      {selectedProduct && (
+      {isLargeScreen && selectedProduct && (
         <ProductDetailsPopup product={selectedProduct} onClose={closeProductDetails} />
       )}
     </div>
