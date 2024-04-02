@@ -7,6 +7,8 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import { CartProvider } from "./CartContext";
 import { PaymentProvider } from "./PaymentContext";
+import SliderNavbar from "./Components/SliderNavbar";
+import ProductBanner from "./ProductBanner/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,9 +26,17 @@ export default async function RootLayout({ children }) {
           <CartProvider>
             <PaymentProvider>
               <div className="wrapper">
-                <Navbar />
+                <div className="lg:hidden"> {/* Show SliderNavbar on small screens */}
+                  <SliderNavbar/>
+                </div>
+                <div className="hidden lg:block"> {/* Show Navbar on large screens */}
+                  <Navbar/>
+                </div>              
                 <div className="mt-10 pt-7">{children}</div>
+                <div className="">
                 <Footer />
+
+                </div>
               </div>
               <Analytics/>
             </PaymentProvider>

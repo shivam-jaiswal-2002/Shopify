@@ -1,0 +1,69 @@
+.sliderNavbar {
+    /* Base styles for the navbar */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px; /* Adjust height as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    background-color: black; /* Or your desired background color */
+    color: white;
+    font-family: sans-serif;
+    z-index: 100; /* Ensure navbar stays on top */
+    transition: background-color 0.3s ease-in-out; /* For a smoother transition when open */
+  }
+  
+  .largeScreenNavbar {
+    /* Additional styles for large screens (optional) */
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+  }
+  
+  .open {
+    /* Styles for the open state (e.g., background-color change) */
+    background-color: black; /* Or a different background color */
+  }
+  
+  .sliderButton {
+    /* Styles for the menu button */
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .sliderIcon {
+    /* Styles for the menu icon */
+    font-size: 1.5rem; /* Adjust font size as needed */
+  }
+  
+  .sliderContent {
+    /* Styles for the slider content */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    transition: all 0.3s ease-in-out;
+    overflow-y: auto; /* Enable scrolling for long content */
+  }
+  
+  .show {
+    /* Styles for the open state (display, overflow, etc.) */
+    display: flex;
+  }
+  /* Add styles for the close button */
+.closeButton {
+    background: none;
+}
+  
+  /* Additional styles for navbar elements (links, buttons, etc.) */
+  /* ... */
+  
