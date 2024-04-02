@@ -4,6 +4,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { getSession } from 'next-auth/react';
 import {useRouter} from "next/navigation";
+import {Suspense} from "react";
+
+
+
 const MyOrderPage = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -60,7 +64,13 @@ const MyOrderPage = () => {
     <div className="container mx-auto p-8">
       <h1 className="text-3xl font-semibold mb-4">My Orders</h1>
       {loading ? (
-        <div className="text-center mt-8">Loading...</div>
+        <div className="fixed top-0 left-0 w-full h-full z-50 bg-gray-900 bg-opacity-75 flex justify-center items-center">
+        <div className="spinner">
+          <div className="dot dot-1 bg-blue-500"></div>
+          <div className="dot dot-2 bg-green-500"></div>
+          <div className="dot dot-3 bg-red-500"></div>
+        </div>
+      </div>
       ) : error ? (
         <div className="text-center mt-8 text-red-500">{error}</div>
       ) : (

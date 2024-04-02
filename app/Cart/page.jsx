@@ -11,7 +11,17 @@ export default async function Cart() {
     {session ? (
       <CartPage />
     ) : (
-      <p className="text-red-500 font-bold items-center text-center text-4xl mt-40 pt-20">Please login to view cart <a className='text-green-400' href="/login">Login here</a></p>
+      <div className="min-h-screen flex justify-center items-center p-8 bg-gray-100">
+  <div className="max-w-md text-center animate-pulse">
+    <h1 className="text-4xl font-bold text-black">Please Login to View Cart</h1>
+    <button
+      className="mt-8 py-2 px-4 bg-blue-900 hover:bg-blue-600 text-white font-bold rounded-md shadow-sm"
+    >
+      <a href="/login">Login here</a>
+    </button>
+  </div>
+</div>
+
     )}
   </div>
   )

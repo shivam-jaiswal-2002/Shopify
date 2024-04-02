@@ -142,7 +142,7 @@ export const PaymentPage = () => {
             {/* Complete payment button */}
             <button
               onClick={handlePaymentDone}
-              className="bg-black text-white px-4 py-2 rounded-md hover:bg-white hover:text-black w-full"
+              className="bg-blue-900 text-white px-4 py-2 rounded-md hover:bg-black hover:text-white w-full"
             >
               Complete Payment
             </button>
