@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect } from "react";
 import { FaShoppingCart, FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 import { useCart } from "../CartContext";
