@@ -61,10 +61,10 @@ export const CartPage = () => {
               ))}
             </ul>
             <div className="mt-8 flex justify-end">
-              <p className="text-xl font-semibold">Total: ${calculateCombinedTotalPrice()}</p>
+              <p className="text-xl font-semibold mr-10">Total: ${calculateCombinedTotalPrice()}</p>
             </div>
             <div className="mt-8">
-              <button onClick={handleCheckout} className="bg-blue-900 text-white px-4 py-2 rounded-md hover:bg-blue-600">
+              <button onClick={handleCheckout} className="bg-blue-900 ml-3 text-white px-4 py-2 rounded-md hover:bg-blue-600">
                 Checkout
               </button>
             </div>

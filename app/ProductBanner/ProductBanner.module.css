@@ -10,3 +10,12 @@
     height: 450px;
   }
   
+  @media (max-width: 768px) {
+    /* Adjust height for small screens */
+    .bannerImage {
+      height: 300px; /* Set the height for small screens */
+    }
+    .productBanner{
+      height: 300px;
+    }
+  }
