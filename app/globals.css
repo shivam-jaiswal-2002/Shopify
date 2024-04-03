@@ -8,17 +8,7 @@
   padding: 0;
   box-sizing: border-box;
 }
-@media (max-width: 768px) {
-  .normalnavbar {
-    display: none; /* Hide normal navbar on small screens */
-  }
-}
 
-@media (min-width: 769px) {
-  .slidernavbar {
-    display: none; /* Hide slider navbar on large screens */
-  }
-}
 body {
   font-family: 'Open Sans', sans-serif;
 }
