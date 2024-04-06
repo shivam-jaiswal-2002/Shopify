@@ -17,8 +17,8 @@ export const POST = async (request) => {
       products,
       shippingDetails,
       paymentMethod,
+      status: "in progress",
     });
-    console.log(newPayment);
     await newPayment.save();
 
     // Update the itemsInStock for each product

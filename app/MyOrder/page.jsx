@@ -82,8 +82,13 @@ const MyOrderPage = () => {
               <p className="mb-2">Address: {order.shippingDetails.address}</p>
               <p className="mb-2">User: {order.user}</p>
               <p className="mb-2">Created At: {new Date(order.createdAt).toLocaleString()}</p>
+              <p className="mb-2">Status: {order.status}</p>
+
               {/* Render product details if needed */}
+              {order.status==="in progress" && 
               <button onClick={() => cancelOrder(order._id)} className="bg-red-500 text-white px-3 py-1 rounded">Cancel Order</button>
+
+              }
             </div>
           ))}
         </div>

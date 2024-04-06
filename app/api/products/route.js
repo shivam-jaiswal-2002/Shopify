@@ -5,7 +5,6 @@ export const revalidate = 0;
 export const PUT = async (req, res) => {
     await connectDB();
     const {id, quantity} = await req.json();
-    console.log(id,quantity);
     // console.log(quantity, id);
     try {
       const product = await Product.findById(id);
