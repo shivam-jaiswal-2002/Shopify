@@ -60,7 +60,7 @@ const PaymentPage = () => {
     <>
       <div className="container mx-auto p-4 flex justify-center items-center">
         <div className="max-w-lg w-full bg-white rounded-lg shadow-lg p-8">
-          <h1 className="text-3xl font-semibold mb-8 text-center">Payment Page</h1>
+          <h1 className="text-3xl font-semibold mb-8 text-center">Complete the payment</h1>
           <ul className="border border-gray-200 rounded p-8 mb-5">
             {state.products.map((item) => (
               <li key={item.id} className="flex items-center justify-between p-2 m-2 border-b border-gray-200">
